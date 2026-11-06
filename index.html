@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report a Maintenance Issue</title>
+  <link rel="icon" type="image/png" href="assets/Rodent.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <div class="logo" role="img" aria-label="Maintenance requests"><img src="assets/Rodent.png" style="width: 50px;" alt="Rodent Logo"></div>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+
+    <!-- State 1: Form -->
+    <section id="formView" class="layout">
+      <h1>Report a Maintenance Issue</h1>
+
+      <form id="requestForm" class="card" novalidate>
+        <div class="field">
+          <label for="unit">Unit or Address</label>
+          <input type="text" id="unit" name="unit" autocomplete="street-address" required aria-describedby="unit-error">
+          <p class="error-msg" id="unit-error" hidden>Enter your unit or address.</p>
+        </div>
+
+        <div class="field">
+          <label for="category">Category</label>
+          <div class="select-wrap">
+            <select id="category" name="category" required aria-describedby="category-error">
+              <option value="">Select a category</option>
+              <option>Plumbing</option>
+              <option>Electrical</option>
+              <option>Heating & Cooling</option>
+              <option>Appliances</option>
+              <option>Pests</option>
+              <option>Window and Doors</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <p class="error-msg" id="category-error" hidden>Select a category.</p>
+        </div>
+
+        <fieldset class="field" aria-describedby="urgency-error">
+          <legend>Urgency</legend>
+          <div class="urgency-grid">
+            <label class="option">
+              <input type="radio" name="urgency" value="Low">
+              <span><strong>Low</strong><small>Can wait a week or more</small></span>
+            </label>
+            <label class="option">
+              <input type="radio" name="urgency" value="Medium" checked>
+              <span><strong>Medium</strong><small>Fix within a few days</small></span>
+            </label>
+            <label class="option">
+              <input type="radio" name="urgency" value="Urgent">
+              <span><strong>Urgent</strong><small>Safety risk or loss of water, heat or power</small></span>
+            </label>
+          </div>
+          <p class="error-msg" id="urgency-error" hidden>Choose an urgency level.</p>
+        </fieldset>
+
+        <div class="field">
+          <label for="description">Describe the issue</label>
+          <textarea id="description" name="description" rows="5" required
+            placeholder="e.g. The kitchen faucet drips constantly and the toilet is clogged"
+            aria-describedby="description-error"></textarea>
+          <p class="error-msg" id="description-error" hidden>Describe the issue.</p>
+        </div>
+
+        <p class="form-alert" id="formAlert" role="alert" hidden></p>
+        <button type="submit" class="btn">Submit request</button>
+      </form>
+    </section>
+
+    <!-- State 2: Confirmation -->
+    <section id="confirmView" class="confirm" hidden>
+      <div class="card">
+        <h1 id="confirmHeading" tabindex="-1">Request Submitted</h1>
+        <p class="ref">Request #<span id="refNum"></span></p>
+
+        <dl class="summary">
+          <dt>Unit or address</dt><dd id="outUnit"></dd>
+          <dt>Category</dt><dd id="outCategory"></dd>
+          <dt>Urgency</dt><dd id="outUrgency"></dd>
+          <dt>Issue</dt><dd id="outDescription"></dd>
+        </dl>
+
+        <button type="button" class="btn" id="resetBtn">Report another issue</button>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
