@@ -37,7 +37,7 @@ body {
 .logo { width: 40px; height: 40px;}
 
 /* Layout */
-main { padding-top: 40px; padding-bottom: 64px; }
+main.wrap { padding-top: 0px; padding-bottom: 64px; }
 .layout { display: grid; grid-template-columns: 1fr; gap: 24px; }
 h1 { font-size: 24px; line-height: 1.2; font-weight: 700; margin: 0; margin-top: 20px; text-align: center; }
 h2 { font-size: 18px; font-weight: 600; margin: 0 0 12px; }
@@ -95,7 +95,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible,
 .btn:hover { background: var(--btn-hover); }
 
 /* Confirmation */
-.confirm .card { max-width: 480px; margin: 24px auto 0; }
+.confirm .card { margin: 24px auto 0; }
 .confirm h1 { text-align: left; }
 .confirm h1:focus { outline: none; }
 .ref { color: var(--muted); margin: 4px 0 20px; }
@@ -112,7 +112,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible,
 /* Mobile */
 @media (max-width: 720px) {
   .wrap { padding: 0 16px; }
-  main { padding-top: 24px; }
+  main.wrap { padding-top: 0px; padding-bottom: 20px; }
   .layout { gap: 16px; }
   .card { padding: 16px; }
   .urgency-grid { grid-template-columns: 1fr; }
